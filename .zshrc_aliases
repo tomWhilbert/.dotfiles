@@ -12,7 +12,7 @@ alias dig='/opt/homebrew/bin/dig'
 alias tldr='tldr --color always'
 alias fdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias lsgroups='dscl . -list /Groups'
-alias getssid='sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I'
+alias getssid="ipconfig getsummary $(networksetup -listallhardwareports | awk '/Hardware Port: Wi-Fi/{getline; print $2}') | awk -F ' SSID : ' '/ SSID : / {print $2}'"
 alias bathelp='bat --plain --language=help'
 alias x='chmod +x'
 alias buu='brew update && brew upgrade'
@@ -73,6 +73,6 @@ alias rbak='/Users/tom/bin/scripts/backups/restic/./restic-homedir.sh'
 alias rbro='/Users/tom/Applications/Restic-Browser.app/Contents/MacOS/Restic-Browser --password-command $RESTIC_PASSWORD -r $RESTIC_REPO'
 
 #* Powershell
-alias psh='cat /Users/tom/.local/share/powershell/PSReadLine/ConsoleHost_history.txt'
-alias sps='cat /Users/tom/.dotfiles/Microsoft.PowerShell_profile.ps1'
-alias ops='code /Users/tom/.dotfiles/powershell.code-workspace'
+alias psh='cat /Users/tom/.local/share/powershell/PSReadLine/ConsoleHost_history.txt' #powershell history
+alias pfx='cat /Users/tom/.dotfiles/Microsoft.PowerShell_profile.ps1' #powershell functions and aliases
+alias psw='code /Users/tom/.dotfiles/powershell.code-workspace'  #powershell workspace
