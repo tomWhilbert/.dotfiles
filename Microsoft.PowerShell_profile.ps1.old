@@ -1,0 +1,61 @@
+### Aliases
+
+New-Alias -Name ls -Value Get-ChildItem
+New-Alias -Name ga -Value Get-Alias
+New-Alias -Name info -Value Get-PnPSite 
+New-Alias -Name cat -Value Get-Content
+New-Alias -Name exexit -Value disconnect-ExchangeOnline
+
+
+function spcon {
+      param($site)
+      Connect-PnPOnline -Url https://ucblaw.sharepoint.com/sites/"$site" -Interactive
+}
+
+New-Alias -Name spexit -Value Disconnect-PnPOnline
+
+
+# Download Site Pages
+function pcopy {
+    $pageUrl = Read-Host -Prompt "Enter page URL"
+    $localPath = "$HOME/Desktop"
+    #Grabs the filename string at end of URL
+    if ($pageUrl -match ".*/(.+)$") {
+        $fname = $matches[1]
+    }
+    Get-PnPFile -Url $pageUrl -Path $localPath -FileName "$fname" -AsFile
+}
+
+
+function excon {
+     Connect-ExchangeOnline -UserPrincipalName thilbert@clinical.law.berkeley.edu
+}
+
+
+
+Function Write-Statement {
+    param($statement)
+     Write-Host $statement -ForegroundColor Green
+    }     
+
+
+
+#list all functions 
+function lsfx {
+    Get-Command -CommandType Function
+}   
+
+# View the definition of a specific function
+Function myfx {
+    param($fx)
+    Get-Content Function:"$fx"
+}    
+
+#Saves current history into a persistent file
+Function hist {
+    Get-History | Out-File -FilePath $HOME/.dotfiles/pwsh_history.txt -Append
+}
+
+
+
+
