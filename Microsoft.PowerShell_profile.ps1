@@ -39,3 +39,7 @@ function pcopy {
 function excon {
      Connect-ExchangeOnline -UserPrincipalName thilbert@clinical.law.berkeley.edu
 }
+
+function getpro { 
+    Get-Content $PROFILE 
+}
