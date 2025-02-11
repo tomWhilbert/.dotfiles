@@ -37,6 +37,7 @@ alias ip='/Users/tom/bin/scripts/get-ip/./ip-macOS.sh'
 alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
 alias wh='where'
 alias lc='launchctl '
+alias conf='code $HOME/.config/ghostty/config'
 
 
 #* Python
@@ -69,8 +70,8 @@ alias gr='git restore'
 # alias jr='echo $(security find-generic-password -a thomaswhilbert -s AD -w) | sudo -S jamf recon'
 
 #* Restic
-alias rbak='/Users/tom/bin/scripts/backups/restic/./restic-homedir.sh'
-alias rbro='/Users/tom/Applications/Restic-Browser.app/Contents/MacOS/Restic-Browser --password-command $RESTIC_PASSWORD -r $RESTIC_REPO'
+alias rbak='/Users/tom/bin/scripts/backups/restic/restic_home_backup.sh'
+alias rbro='/Users/tom/Applications/Restic-Browser.app/Contents/MacOS/Restic-Browser --password-command $RESTIC_PASSWORD_COMMAND -r $RESTIC_REPO'
 
 #* Powershell
 alias psh='cat /Users/tom/.local/share/powershell/PSReadLine/ConsoleHost_history.txt' #powershell history

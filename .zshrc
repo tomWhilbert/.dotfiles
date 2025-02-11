@@ -10,8 +10,8 @@ fi
 
 #* Declare some path variables
 DOTS=$HOME/.dotfiles
-OMZ=$HOME/bin/plugins/ohmyzsh
 PLUGINS=$HOME/bin/plugins
+OMZ=$PLUGINS/ohmyzsh
 
 #* Add to PATH
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -21,13 +21,15 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
 
+
 # Created by `pipx` on 2024-04-09 15:09:26
 export PATH="$PATH:/Users/tom/.local/bin"
 
 #* Environment Variables
-export RCLONE_PASSWORD_COMMAND="security find-generic-password -a $USER -s rclone -w"
+#export RCLONE_PASSWORD_COMMAND="security find-generic-password -a $USER -s rclone -w"
 export RESTIC_REPO=/Volumes/Restic_Backups/mbp14-tom-home
 export RESTIC_PASSWORD=$(security find-generic-password -a $USER -s restic -w)
+
 export BAT_THEME="gruvbox-dark"
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications caskroom=$HOME/Applications"
 
