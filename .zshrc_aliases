@@ -71,7 +71,7 @@ alias gr='git restore'
 
 #* Restic
 alias rbak='/Users/tom/bin/scripts/backups/restic/restic_home_backup.sh'
-alias rbro='/Users/tom/Applications/Restic-Browser.app/Contents/MacOS/Restic-Browser --password-command $RESTIC_PASSWORD_COMMAND -r $RESTIC_REPO'
+alias rbro='/Users/tom/Applications/Restic-Browser.app/Contents/MacOS/Restic-Browser --password-command $RESTIC_PASSWORD -r $RESTIC_REPO'
 
 #* Powershell
 alias psh='cat /Users/tom/.local/share/powershell/PSReadLine/ConsoleHost_history.txt' #powershell history
