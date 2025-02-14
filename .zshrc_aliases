@@ -38,6 +38,7 @@ alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
 alias wh='where'
 alias lc='launchctl '
 alias conf='code $HOME/.config/ghostty/config'
+alias d1='dust -b -d 1'
 
 
 #* Python

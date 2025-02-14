@@ -25,7 +25,13 @@ dus () {
        echo -e "$BLUE Total Size: $RED $total $BLUE in $RED $(readlink -f "$1")"
    	}
 
-	#* Grabe absolute path
+	#* Dust Disk Usage - choose depth
+dl ()
+{
+	dust -b -d "$1" 
+}
+
+	#* Grab absolute path
 rp () {
 		realpath "$1" |  pbcopy
 	}
