@@ -1,20 +1,15 @@
- #* Replace eza with lsd on 2/17/24
 alias l='lsd -lah --date=+"%a %m/%d %H:%M" --icon=never'
 alias lS='lsd -lS --icon=never'
 alias lt='l -tr --icon=never'
 alias li='l -i --icon=never'
 alias ldo='l -d */'
 
-
-#* Misc macOS 
-alias ss='sudo lsof -PiTCP -sTCP:LISTEN'  #* an analog to the linux ss command
+alias ss='sudo lsof -PiTCP -sTCP:LISTEN'  
 alias dig='/opt/homebrew/bin/dig'
 alias tldr='tldr --color always'
 alias fdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias lsgroups='dscl . -list /Groups'
 alias getssid="ipconfig getsummary $(networksetup -listallhardwareports | awk '/Hardware Port: Wi-Fi/{getline; print $2}') | awk -F ' SSID : ' '/ SSID : / {print $2}'"
-alias bathelp='bat --plain --language=help'
-alias x='chmod +x'
 alias buu='brew update && brew upgrade'
 alias rmf='rm -rf'
 alias srz='exec zsh'
@@ -29,10 +24,9 @@ alias zrf='code $HOME/.dotfiles/.zshrc_functions'
 alias grep='ggrep -i --color'
 alias pgrep='pgrep -i'
 alias cat='bat'
-# alias vim='/opt/homebrew/bin/nvim'
+
+alias vim='/opt/homebrew/bin/nvim'
 alias wp='/Users/tom/bin/scripts/walk_pull/wp.sh'
-alias posh='bash --rcfile $HOME/.dotfiles/.bashrc_posh'
-alias omb='bash --rcfile $HOME/.dotfiles/.bashrc_OMB'
 alias ip='/Users/tom/bin/scripts/get-ip/./ip-macOS.sh'
 alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
 alias wh='where'
@@ -40,20 +34,9 @@ alias lc='launchctl '
 alias conf='code $HOME/.config/ghostty/config'
 alias d1='dust -b -d 1'
 
-
-#* Python
-alias py='python'
-
-#* Virtual Machines
-#alias vmdeb='vmrun -T fusion start "/Users/thomaswhilbert/Virtual-Machines/Debian 10.x 64-bit.vmwarevm/Debian 10.x 64-bit.vmx" nogui'
-#alias vbls='VBoxManage list vms'
-
-# alias wake='wakeonlan -i 192.168.20.255 60:f8:1d:cf:81:06'
-
 #* RClone commands 
 alias rclr='rclone listremotes'
 alias rc='rclone'
-# alias rcmg='rc mount --vfs-cache-mode full --exclude '.DS_Store' gd: /Users/thomaswhilbert/mnt/gd'
 
 #* Git aliases ###
 alias g='git'
@@ -67,14 +50,6 @@ alias gpo='git push -u origin'
 alias gp='git pull'
 alias gr='git restore'
 
-# #* Jamf
-# alias jr='echo $(security find-generic-password -a thomaswhilbert -s AD -w) | sudo -S jamf recon'
-
-#* Restic
-alias rbak='/Users/tom/bin/scripts/backups/restic/restic_home_backup.sh'
-alias rbro='/Users/tom/Applications/Restic-Browser.app/Contents/MacOS/Restic-Browser --password-command $RESTIC_PASSWORD -r $RESTIC_REPO'
-
 #* Powershell
 alias psh='cat /Users/tom/.local/share/powershell/PSReadLine/ConsoleHost_history.txt' #powershell history
 alias pfx='cat /Users/tom/.dotfiles/Microsoft.PowerShell_profile.ps1' #powershell functions and aliases
-alias psw='code /Users/tom/.dotfiles/powershell.code-workspace'  #powershell workspace

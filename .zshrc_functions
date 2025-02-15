@@ -15,7 +15,7 @@ dku () {
 	diskutil unmountDisk /dev/disk"$1"
 	}
 
-	#* Disk Usage, Sorted by Size - replacing with dust below
+#* Disk Usage, Sorted by Size - replacing with dust below
 # dus () {
 #   	    RED='\033[0;31m'
 # 		BLUE='\033[0;34m'
@@ -25,13 +25,13 @@ dku () {
 #        echo -e "$BLUE Total Size: $RED $total $BLUE in $RED $(readlink -f "$1")"
 #    	}
 
-	#* Dust Disk Usage - choose depth - defaults to 1
+#* Dust Disk Usage - choose depth - defaults to 1
 dus ()
 {
 	if [ $# -gt 0 ]; then
 		dust -b -d "$1" 
 	else
-		dust -b -d 1
+		dust -b -d 1 
 	fi
 }
 
@@ -51,7 +51,7 @@ man() {
     command man "$@"
 	}
 
-#* Space to Dash
+#* Transform whitespace to Dash
 sd() {
 		for file in $1; 
 		do mv "$file" "$(echo "$file" | tr ' ' '-')" ; 
@@ -110,28 +110,11 @@ checkmember () {
 	dseditgroup -o checkmember -m "$1" "$2"
 	}
 
-#* enable bat features while using the help command.
-help() {
-    "$@" --help 2>&1 | bathelp
-	}
-
 #* Symmetric file encryption (AES 128 is the default, this increases it to 256), param 1 is the target file:
 gpgsym () {
 	gpg --symmetric --cipher-algo AES256 "$1"
 	}
 
-# #* Used to finish copying all of clio docs from mounted volume to local 
-# rsc () {
-# 		rsync -rlvh "/Volumes/Clio Drive" "/Users/tom/Desktop/Clio_Migration" --exclude={',Opus Associates, LLC/','Clients/','Writing Requirement 2- Fall 2023/','Fall 2022, Writing Requirement 2 - Fall 22 Folders/','Voyage Biomedical/'}  --info=progress2
-# }
-
-rsc () {
-		rsync -rlvh "/Volumes/Clio Drive" "/Users/tom/Desktop/Clio_Migration" --info=progress2 --stats -vv
-}
-
-rcl () {
-	rc copy  "$1" ucod:Clio_Upload/"$1" -P
-}
  
 #* Azure cli find group memberships
 az-groups () {
