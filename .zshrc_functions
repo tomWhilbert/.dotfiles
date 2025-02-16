@@ -125,3 +125,8 @@ az-groups () {
 uz () {
 	python -m zipfile -e "$1" "$2"
 }
+
+#* Scrub lines from a file
+scrub () {
+	sed -i "/$1/d" "$2"
+}
