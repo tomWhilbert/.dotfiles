@@ -131,3 +131,10 @@ scrub () {
 	sed -i "/$1/d" "$2"
 }
 
+#* Connect to the b2 environment
+setb2() {
+    export b2_repo="b2:mbp14-home-restic:"
+    export RESTIC_PASSWORD="$(security find-generic-password -a $USER -s restic -w)"
+    export B2_ACCOUNT_ID="$(security find-generic-password -a $USER -s b2_id -w)"
+    export B2_ACCOUNT_KEY="$(security find-generic-password -a $USER -s b2_key -w)" 
+}
