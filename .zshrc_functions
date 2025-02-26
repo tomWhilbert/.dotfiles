@@ -31,7 +31,7 @@ dus ()
 	if [ $# -gt 0 ]; then
 		dust -b -d "$1" 
 	else
-		dust -b -d 1 
+		dust -b -d 1
 	fi
 }
 
