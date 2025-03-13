@@ -20,8 +20,6 @@ export PATH="$HOME/bin/scripts/:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
-
-
 # Created by `pipx` on 2024-04-09 15:09:26
 export PATH="$PATH:/Users/tom/.local/bin"
 

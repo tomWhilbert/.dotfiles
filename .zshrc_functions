@@ -16,17 +16,17 @@ dku () {
 	}
 
 #* Disk Usage, Sorted by Size - replacing with dust below
-# dus () {
-#   	    RED='\033[0;31m'
-# 		BLUE='\033[0;34m'
-#        total=$(du -sh "$1" | cut -f1)
-#        du -sh "$1"/* | sort -h
-#        printf "\n"
-#        echo -e "$BLUE Total Size: $RED $total $BLUE in $RED $(readlink -f "$1")"
-#    	}
+dus () {
+		RED='\033[0;31m'
+		BLUE='\033[0;34m'
+       total=$(du -sh "$1" | cut -f1)
+       du -sh "$1"/* | sort -h
+       printf "\n"
+	   printf "%bTotal Size: %b %s %b in %b %s%b\n" "$BLUE" "$RED" "$total" "$BLUE" "$RED" "$(readlink -f "$1")" "$BLUE"
+   	}
 
 #* Dust Disk Usage - choose depth - defaults to 1
-dus ()
+dust ()
 {
 	if [ $# -gt 0 ]; then
 		dust -b -d "$1" 
@@ -121,7 +121,7 @@ az-groups () {
 		az ad user get-member-groups --id "$1@clinical.law.berkeley.edu" --query '[].displayName' --output table
 }
 
-#* User python module to unzip to target directory
+#* Use python module to unzip to target directory
 uz () {
 	python -m zipfile -e "$1" "$2"
 }
