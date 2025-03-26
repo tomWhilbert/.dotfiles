@@ -24,7 +24,7 @@ export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
 export PATH="$PATH:/Users/tom/.local/bin"
 
 #* Environment Variables
-#export RCLONE_PASSWORD_COMMAND="security find-generic-password -a $USER -s rclone -w"
+export RCLONE_PASSWORD_COMMAND="security find-generic-password -a $USER -s rclone -w"
 export RESTIC_REPO=/Volumes/Backups/mbp14-tom-home
 export RESTIC_PASSWORD=$(security find-generic-password -a $USER -s restic -w)
 

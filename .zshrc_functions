@@ -127,6 +127,7 @@ uz () {
 }
 
 #* Scrub lines from a file
+#* param 1 is the string to remove, param 2 is the target file
 scrub () {
 	sed -i "/$1/d" "$2"
 }
@@ -145,3 +146,17 @@ setb2() {
 	
 # 	clamscan -r --bell --verbose "$1"
 # }
+
+
+m2h() {
+    input_file="$1"
+    output_file="${input_file%.md}.html"
+    pandoc "$input_file" -o "$output_file"
+}
+
+
+h2m() {
+    input_file="$1"
+    output_file="${input_file%.html}.md"
+    pandoc "$input_file" -o "$output_file"
+}
