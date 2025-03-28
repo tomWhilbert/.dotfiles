@@ -26,14 +26,14 @@ dus () {
    	}
 
 #* Dust Disk Usage - choose depth - defaults to 1
-dust ()
-{
-	if [ $# -gt 0 ]; then
-		dust -b -d "$1" 
-	else
-		dust -b -d 1
-	fi
-}
+# dust ()
+# {
+# 	if [ $# -gt 0 ]; then
+# 		dust -b -d "$1" 
+# 	else
+# 		dust -b -d 1
+# 	fi
+# }
 
 	#* Grab absolute path
 rp () {
@@ -147,16 +147,15 @@ setb2() {
 # 	clamscan -r --bell --verbose "$1"
 # }
 
-
 m2h() {
     input_file="$1"
     output_file="${input_file%.md}.html"
     pandoc "$input_file" -o "$output_file"
 }
 
-
 h2m() {
     input_file="$1"
     output_file="${input_file%.html}.md"
     pandoc "$input_file" -o "$output_file"
 }
+
