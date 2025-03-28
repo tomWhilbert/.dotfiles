@@ -1,0 +1,28 @@
+commit 7868d1f422bb802e562189baff260fc54f8ccb8a
+Author: tomWhilbert <thomaswhilbert@gmail.com>
+Date:   Wed Mar 8 22:29:28 2023 -0500
+
+    new pysrv function for better pywebserver cli
+
+diff --git a/.zshrc_functions b/.zshrc_functions
+index 7ceec3c..b395673 100755
+--- a/.zshrc_functions
++++ b/.zshrc_functions
+@@ -216,3 +216,16 @@ help() {
+     "$@" --help 2>&1 | bathelp
+ }
+ 
++pysrv () {
++	BLUE='\033[0;34m' 
++	BIGreen='\033[1;92m' 
++	BIYellow='\033[1;93m'
++	NC='\033[0m'
++	ip4=$(scutil --nwi | grep address | cut -d':' -f2)
++	printf "\n"
++	echo "$BLUE Connect @ $BIGreen $ip4:8000"
++	printf "\n"
++	echo "$BIYellow Control + C to end session"
++	echo "$NC" 
++	python -m http.server
++}
+\ No newline at end of file

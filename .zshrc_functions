@@ -159,3 +159,16 @@ h2m() {
     pandoc "$input_file" -o "$output_file"
 }
 
+pysrv () {
+   BLUE='\033[0;34m'
+   BIGreen='\033[1;92m'
+   BIYellow='\033[1;93m'
+   NC='\033[0m'
+   ip4=$(scutil --nwi | grep address | cut -d':' -f2)
+   printf "\n"
+   echo "$BLUE Connect @ $BIGreen $ip4:8000"
+   printf "\n"
+   echo "$BIYellow Control + C to end session"
+   echo "$NC"
+   python -m http.server
+}
