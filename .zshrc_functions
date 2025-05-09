@@ -3,7 +3,7 @@
 #* Testing: parameter expansion for git, gq AKA, git quick.  Works can replace or work as alternative to lg ()
 gq () {
 	git add --all .
-	git commit -m "${1:-update}"  #* recieve param 1 or if no input 'update'
+	git commit -m "${1:-update}"  #* receive param 1 or if no input 'update'
 	git push 
 	}
 
@@ -115,11 +115,6 @@ gpgsym () {
 	gpg --symmetric --cipher-algo AES256 "$1"
 	}
 
- 
-#* Azure cli find group memberships
-az-groups () {
-		az ad user get-member-groups --id "$1@clinical.law.berkeley.edu" --query '[].displayName' --output table
-}
 
 #* Use python module to unzip to target directory
 uz () {
@@ -140,18 +135,12 @@ setb2() {
     export B2_ACCOUNT_KEY="$(security find-generic-password -a $USER -s b2_key -w)" 
 }
 
-# clamscan {
-# 	ssh nast
-# 	docker exec -it 
-	
-# 	clamscan -r --bell --verbose "$1"
-# }
 
-m2h() {
-    input_file="$1"
-    output_file="${input_file%.md}.html"
-    pandoc "$input_file" -o "$output_file"
-}
+# m2h() {
+#     input_file="$1"
+#     output_file="${input_file%.md}.html"
+#     pandoc "$input_file" -o "$output_file"
+# }
 
 h2m() {
     input_file="$1"
@@ -171,4 +160,63 @@ pysrv () {
    echo "$BIYellow Control + C to end session"
    echo "$NC"
    python -m http.server
+}
+
+
+
+# Define the function with a docstring and parameters
+# myfunction() {
+#     # Check if the number of arguments is less than the minimum required
+#     local min_args=2
+
+#     if [ $# -lt $min_args ]; then
+#         echo "Usage: $0 <parameter1> <parameter2> ... <parameterN>"
+#         exit 1
+#     fi
+
+#     # If the function reaches here, it means all required parameters were provided.
+#     echo "All required parameters are provided."
+# }
+
+
+# #* Needs cleaning up
+# m2h() {
+# 	local min_args=2
+
+#     if [ $# -lt $min_args ]; then
+#         echo "Usage: $0 requires two arguments, <input_file> <output_file>"
+#     fi
+
+#     # Pause for user input before exiting
+#     echo "waiting for input..."
+#     read -r input_file output_file
+
+#     # If the function reaches here, it means all required parameters were provided. 
+#     # input_file="$1"
+#     output_file="${input_file%.md}.html"
+#     pandoc "$input_file" -o "$output_file"
+
+	
+# }
+
+m2h() {
+    local min_args=2
+
+    if [ $# -lt $min_args ]; then
+        echo "Usage: $0 requires two arguments, <input_file> <output_file>"
+        echo "waiting for input..."
+        read -r input_file output_file
+    else
+        input_file="$1"
+        output_file="$2"
+    fi
+
+    # Ensure input_file and output_file are not empty
+    if [ -z "$input_file" ] || [ -z "$output_file" ]; then
+        echo "Error: Both input_file and output_file must be provided."
+        return 1
+    fi
+
+    # Use pandoc to convert the file
+    pandoc "$input_file" -o "$output_file"
 }

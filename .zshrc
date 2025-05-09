@@ -60,7 +60,7 @@ bindkey -e #* use emacs mode
 
 #* Bindkey for line word jump
 #* Tab Autocomplete
-# bindkey '^I' autosuggest-accept
+bindkey '^I' autosuggest-accept
 
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
@@ -74,6 +74,7 @@ autoload -Uz compinit
 compinit 
 # End of lines added by compinstall
 
+
 #* Pyenv Config (put before ohmyzsh plugin to avoid error)
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -86,7 +87,7 @@ source $PLUGINS/powerlevel10k/powerlevel10k.zsh-theme
 source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source $PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 #* load ssh keys into the macOS ssh agent
 ssh-add --apple-load-keychain 2> /dev/null  
@@ -98,3 +99,6 @@ source $DOTS/.zshrc_functions
 
 #To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/tom/.lmstudio/bin"

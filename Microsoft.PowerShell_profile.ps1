@@ -37,9 +37,14 @@ function pcopy {
 
 
 function excon {
-     Connect-ExchangeOnline -UserPrincipalName thilbert@clinical.law.berkeley.edu
+     Connect-ExchangeOnline -UserPrincipalName thilbert@clinical.law.berkeley.edu -LoadCmdletHelp
 }
 
 function getpro { 
     Get-Content $PROFILE 
+}
+
+function gcf {
+    param ($fxname)
+    Get-Content Function:\"$fxname"
 }
