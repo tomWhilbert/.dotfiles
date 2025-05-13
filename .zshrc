@@ -39,7 +39,8 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
 # #* brew zsh completions init
  if type brew &>/dev/null
  then
-   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  #  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+   FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
    autoload -Uz compinit
    compinit
  fi
@@ -60,7 +61,7 @@ bindkey -e #* use emacs mode
 
 #* Bindkey for line word jump
 #* Tab Autocomplete
-bindkey '^I' autosuggest-accept
+# bindkey '^I' autosuggest-accept
 
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
@@ -69,9 +70,9 @@ bindkey '^[^[[A' history-substring-search-up
 bindkey '^[^[[B' history-substring-search-down
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit
-compinit 
+# zstyle :compinstall filename '$HOME/.zshrc'
+# autoload -Uz compinit
+# compinit 
 # End of lines added by compinstall
 
 
@@ -87,7 +88,7 @@ source $PLUGINS/powerlevel10k/powerlevel10k.zsh-theme
 source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source $PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+#fsource $PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 #* load ssh keys into the macOS ssh agent
 ssh-add --apple-load-keychain 2> /dev/null  
