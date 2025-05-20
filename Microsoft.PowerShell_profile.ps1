@@ -48,3 +48,8 @@ function gcf {
     param ($fxname)
     Get-Content Function:\"$fxname"
 }
+
+function gcp {
+    param ($commandName)
+    get-command "$commandName" | Select-Object -ExpandProperty parameters
+}
