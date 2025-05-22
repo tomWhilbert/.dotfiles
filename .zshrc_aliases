@@ -58,4 +58,4 @@ alias pfx='cat /Users/tom/.dotfiles/Microsoft.PowerShell_profile.ps1' #powershel
 alias ts='tailscale'
 alias tsu='ts up'
 alias tsd='ts down'
-alias tsr='ts status'  
+alias tss='ts status'  

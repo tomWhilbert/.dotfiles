@@ -13,6 +13,7 @@ New-Alias -Name spexit -Value Disconnect-PnPOnline
 New-Alias -Name  exexit disconnect-ExchangeOnline
 
 
+
 # function spcon {
     #   param($site)
     #   Connect-PnPOnline -Url https://ucblaw.sharepoint.com/sites/"$site" -Interactive
@@ -66,4 +67,8 @@ function gcpd {
             Description = $param.HelpMessage
         }
     } Format-Table -AutoSize
+}
+
+function hs {
+   Get-Content (Get-PSReadlineOption).HistorySavePath
 }
