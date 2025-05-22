@@ -53,3 +53,9 @@ alias gr='git restore'
 #* Powershell
 alias psh='cat /Users/tom/.local/share/powershell/PSReadLine/ConsoleHost_history.txt' #powershell history
 alias pfx='cat /Users/tom/.dotfiles/Microsoft.PowerShell_profile.ps1' #powershell functions and aliases
+ 
+#* Tailscale
+alias ts='tailscale'
+alias tsu='ts up'
+alias tsd='ts down'
+alias tsr='ts status'  

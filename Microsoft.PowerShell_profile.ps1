@@ -48,8 +48,22 @@ function gcf {
     param ($fxname)
     Get-Content Function:\"$fxname"
 }
-
+#* Get-Command -Name $fxname | Select-Object -ExpandProperty parameters
+#* Show a command's parameters
 function gcp {
     param ($commandName)
     get-command "$commandName" | Select-Object -ExpandProperty parameters
+}
+#* Show a command's parameter descriptions
+function gcpd {
+    param ($commandName)
+    $params = (Get-Command "$commandName").Parameters.Values
+    foreach ($param in $params) {
+        [PSCustomObject]@{
+            Name        = $param.Name
+            Type        = $param.ParameterType.Name
+            Required    = $param.IsMandatory
+            Description = $param.HelpMessage
+        }
+    } Format-Table -AutoSize
 }
