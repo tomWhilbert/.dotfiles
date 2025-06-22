@@ -12,6 +12,10 @@ New-Alias -Name spexit -Value Disconnect-PnPOnline
 
 New-Alias -Name  exexit disconnect-ExchangeOnline
 
+New-Alias -Name clip Set-Clipboard
+
+
+
 
 
 # function spcon {
