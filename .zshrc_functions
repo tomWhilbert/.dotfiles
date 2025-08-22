@@ -211,11 +211,11 @@ m2h() {
         output_file="$2"
     fi
 
-    # Ensure input_file and output_file are not empty
-    if [ -z "$input_file" ] || [ -z "$output_file" ]; then
-        echo "Error: Both input_file and output_file must be provided."
-        return 1
-    fi
+    # Ensure input_file and output_file are not empty ***commneted out, seems redundant with the min_args check above***
+    # if [ -z "$input_file" ] || [ -z "$output_file" ]; then
+    #     echo "Error: Both input_file and output_file must be provided."
+    #     return 1
+    # fi
 
     # Use pandoc to convert the file
     pandoc "$input_file" -o "$output_file"
