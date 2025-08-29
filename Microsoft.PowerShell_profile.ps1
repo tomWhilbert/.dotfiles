@@ -126,3 +126,6 @@ function New-SecurityGroupPrompt {
         Write-Host "❌ Failed to create group: $($_.Exception.Message)" -ForegroundColor Red
     }
 }
+
+
+Invoke-Expression (&starship init powershell)
