@@ -128,4 +128,6 @@ function New-SecurityGroupPrompt {
 }
 
 
+# # Initialize Starship at the end of your profile
 Invoke-Expression (&starship init powershell)
+
