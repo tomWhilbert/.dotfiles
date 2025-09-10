@@ -140,15 +140,15 @@ restic() {
     local)
       shift
       command restic \
-        --repo /mnt/main/Backups/restic \
-        --password-command="security find-generic-password -a $USER -s restic-local -w" \
+        --repo /Volumes/Backups/mbp14-tom-home \
+        --password-command="security find-generic-password -a $USER -s restic -w" \
         "$@"
       ;;
     b2)
       shift
       local id key
-      id=$(security find-generic-password -a "$USER" -s b2-account-id -w)
-      key=$(security find-generic-password -a "$USER" -s b2-account-key -w)
+      id=$(security find-generic-password -a "$USER" -s b2_id -w)
+      key=$(security find-generic-password -a "$USER" -s b2_key -w)
 
       B2_ACCOUNT_ID="$id" \
       B2_ACCOUNT_KEY="$key" \
