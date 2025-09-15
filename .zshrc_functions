@@ -115,7 +115,6 @@ gpgsym () {
 	gpg --symmetric --cipher-algo AES256 "$1"
 	}
 
-
 #* Use python module to unzip to target directory
 uz () {
 	python -m zipfile -e "$1" "$2"
@@ -133,7 +132,6 @@ scrub () {
 #     export B2_ACCOUNT_ID="$(security find-generic-password -a $USER -s b2_id -w)"
 #     export B2_ACCOUNT_KEY="$(security find-generic-password -a $USER -s b2_key -w)"
 # }
-
 
 restic() {
   case "$1" in
@@ -163,20 +161,6 @@ restic() {
   esac
 }
 
-
-
-# m2h() {
-#     input_file="$1"
-#     output_file="${input_file%.md}.html"
-#     pandoc "$input_file" -o "$output_file"
-# }
-
-h2m() {
-    input_file="$1"
-    output_file="${input_file%.html}.md"
-    pandoc "$input_file" -o "$output_file"
-}
-
 pysrv () {
    BLUE='\033[0;34m'
    BIGreen='\033[1;92m'
@@ -191,44 +175,7 @@ pysrv () {
    python -m http.server
 }
 
-
-
-# Define the function with a docstring and parameters
-# myfunction() {
-#     # Check if the number of arguments is less than the minimum required
-#     local min_args=2
-
-#     if [ $# -lt $min_args ]; then
-#         echo "Usage: $0 <parameter1> <parameter2> ... <parameterN>"
-#         exit 1
-#     fi
-
-#     # If the function reaches here, it means all required parameters were provided.
-#     echo "All required parameters are provided."
-# }
-
-
-# #* Needs cleaning up
-# m2h() {
-# 	local min_args=2
-
-#     if [ $# -lt $min_args ]; then
-#         echo "Usage: $0 requires two arguments, <input_file> <output_file>"
-#     fi
-
-#     # Pause for user input before exiting
-#     echo "waiting for input..."
-#     read -r input_file output_file
-
-#     # If the function reaches here, it means all required parameters were provided. 
-#     # input_file="$1"
-#     output_file="${input_file%.md}.html"
-#     pandoc "$input_file" -o "$output_file"
-
-	
-# }
-
-m2h() {
+pd() {
     local min_args=2
 
     if [ $# -lt $min_args ]; then
@@ -239,13 +186,5 @@ m2h() {
         input_file="$1"
         output_file="$2"
     fi
-
-    # Ensure input_file and output_file are not empty ***commneted out, seems redundant with the min_args check above***
-    # if [ -z "$input_file" ] || [ -z "$output_file" ]; then
-    #     echo "Error: Both input_file and output_file must be provided."
-    #     return 1
-    # fi
-
-    # Use pandoc to convert the file
     pandoc "$input_file" -o "$output_file"
 }

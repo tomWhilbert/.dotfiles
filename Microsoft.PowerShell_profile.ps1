@@ -131,4 +131,4 @@ function New-SecurityGroupPrompt {
 # # Initialize Starship at the end of your profile
 # Invoke-Expression (&starship init powershell)
 
-oh-my-posh init pwsh --config 'gruvbox' | Invoke-Expression 
+oh-my-posh init pwsh --config /Users/tom/.config/powershell/themes/omp-custom-01.json | Invoke-Expression 
