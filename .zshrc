@@ -86,11 +86,10 @@ eval "$(pyenv init - zsh)"
 # Source paths for zsh plugins
 source $OMZ/lib/directories.zsh #* enables 'd' directory stack
 source $OMZ/plugins/z/z.plugin.zsh
-source $PLUGINS/powerlevel10k/powerlevel10k.zsh-theme
+#source $PLUGINS/powerlevel10k/powerlevel10k.zsh-theme
 source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
-#source $PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 #* load ssh keys into the macOS ssh agent using passphrase from keychain
 qssh-add --apple-load-keychain 2> /dev/null  
@@ -106,4 +105,5 @@ source $DOTS/.zshrc_functions
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tom/.lmstudio/bin"
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
+
