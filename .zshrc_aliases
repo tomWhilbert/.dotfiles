@@ -33,6 +33,7 @@ alias wh='where'
 alias lc='launchctl '
 alias conf='code $HOME/.config/ghostty/config'
 alias d1='dust -b -d 1'
+alias pss='code /Users/tom/Drive/365/Powershell_Scripts/Powershell_Scripts.code-workspace'
 
 #* RClone commands 
 alias rclr='rclone listremotes'
@@ -50,10 +51,6 @@ alias gpo='git push -u origin'
 alias gp='git pull'
 alias gr='git restore'
 
-#* Powershell
-alias psh='cat /Users/tom/.local/share/powershell/PSReadLine/ConsoleHost_history.txt' #powershell history
-alias pfx='cat /Users/tom/.dotfiles/Microsoft.PowerShell_profile.ps1' #powershell functions and aliases
- 
 #* Tailscale
 alias ts='tailscale'
 alias tsu='ts up'
