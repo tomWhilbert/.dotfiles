@@ -1,6 +1,6 @@
 ### Aliases
 
-New-Alias -Name ls -Value Get-ChildItem
+New-Alias -Name l -Value Get-ChildItem
 
 New-Alias -Name ga -Value Get-Alias
 
@@ -131,4 +131,4 @@ function New-SecurityGroupPrompt {
 # # Initialize Starship at the end of your profile
 # Invoke-Expression (&starship init powershell)
 
-oh-my-posh init pwsh --config /Users/tom/.config/powershell/themes/omp-custom-01.json | Invoke-Expression 
+oh-my-posh init pwsh --config /Users/tom/.config/ohmyposh/pwsh/themes/omp-pwsh.json | Invoke-Expression 
