@@ -86,7 +86,7 @@ eval "$(pyenv init - zsh)"
 # Source paths for zsh plugins
 source $OMZ/lib/directories.zsh #* enables 'd' directory stack
 source $OMZ/plugins/z/z.plugin.zsh
-#source $PLUGINS/powerlevel10k/powerlevel10k.zsh-theme
+source $PLUGINS/powerlevel10k/powerlevel10k.zsh-theme
 source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -105,7 +105,7 @@ source $DOTS/.zshrc_functions
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tom/.lmstudio/bin"
 
-#eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
  
- eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/amro.omp.json)"
+# eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/amro.omp.json)"
 
