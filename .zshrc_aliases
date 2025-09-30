@@ -1,4 +1,4 @@
-alias l='lsd -lah --date=+"%a %m/%d %H:%M" --icon=never'
+alias l='lsd -lah --date=+"%a %m/%d %H:%M"'
 alias lS='lsd -lS --icon=never'
 alias lt='l -tr --icon=never'
 alias li='l -i --icon=never'
