@@ -5,13 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# zmodload zsh/zprof
-# Enable zmodload at top and bottom to profile startup time
-
 #* Declare some path variables
 DOTS=$HOME/.dotfiles
 PLUGINS=$HOME/bin/plugins
 OMZ=$PLUGINS/ohmyzsh
+ZDOTDIR=$DOTS
 
 #* Add to PATH
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -28,7 +26,7 @@ export RCLONE_PASSWORD_COMMAND="security find-generic-password -a $USER -s rclon
 export BAT_THEME="gruvbox-dark"
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications caskroom=$HOME/Applications"
 
-# Golang environment variables
+#* Golang environment variables
 export GOROOT=/opt/homebrew/bin/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
@@ -54,11 +52,9 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 bindkey -e #* use emacs mode
-# End of lines configured by zsh-newuser-installd
 
 #* Bindkey for line word jump
 #* Tab Autocomplete
-# bindkey '^I' autosuggest-accept
 
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
@@ -66,19 +62,7 @@ bindkey "^[^[[D" backward-word
 bindkey '^[^[[A' history-substring-search-up
 bindkey '^[^[[B' history-substring-search-down
 
-# The following lines were added by compinstall
-# zstyle :compinstall filename '$HOME/.zshrc'
-# autoload -Uz compinit
-# compinit 
-# End of lines added by compinstall
-
-
 # #* Pyenv Config (put before ohmyzsh plugin to avoid error)
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init --path)"
-
-
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
@@ -92,7 +76,7 @@ source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 #* load ssh keys into the macOS ssh agent using passphrase from keychain
-qssh-add --apple-load-keychain 2> /dev/null  
+ssh-add --apple-load-keychain 2> /dev/null  
 
 #* Source aliases and functions
 source $DOTS/.zshrc_aliases
