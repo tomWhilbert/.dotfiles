@@ -33,7 +33,7 @@ alias wh='where'
 alias lc='launchctl '
 alias conf='code $HOME/.config/ghostty/config'
 alias d1='dust -b -d 1'
-alias pss='code /Users/tom/Drive/365/Powershell_Scripts/Powershell_Scripts.code-workspace'
+alias pss='code /Users/tom/bin/workspaces/Powershell_Scripts.code-workspace'
 alias ws='cd ~/bin/workspaces && l'
 
 #* RClone commands 

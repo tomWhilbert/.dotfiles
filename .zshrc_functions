@@ -126,40 +126,40 @@ scrub () {
 	sed -i "/$1/d" "$2"
 }
 
-# setb2() {         *** Old kept for reference Not secure - export shows password in clear ***
-#     export b2_repo="b2:mbp14-home-restic:"
-#     export RESTIC_PASSWORD="$(security find-generic-password -a $USER -s restic -w)"
-#     export B2_ACCOUNT_ID="$(security find-generic-password -a $USER -s b2_id -w)"
-#     export B2_ACCOUNT_KEY="$(security find-generic-password -a $USER -s b2_key -w)"
-# }
-
-restic() {
-  case "$1" in
-    local)
-      shift
-      command restic \
-        --repo /Volumes/Backups/mbp14-tom-home \
-        --password-command="security find-generic-password -a $USER -s restic -w" \
-        "$@"
-      ;;
-    b2)
-      shift
-      local id key
-      id=$(security find-generic-password -a "$USER" -s b2_id -w)
-      key=$(security find-generic-password -a "$USER" -s b2_key -w)
-
-      B2_ACCOUNT_ID="$id" \
-      B2_ACCOUNT_KEY="$key" \
-      command restic \
-        --repo b2:mybucket:/restic \
-        --password-command="security find-generic-password -a $USER -s restic-b2 -w" \
-        "$@"
-      ;;
-    *)
-      echo "Usage: restic {local|b2} <restic-args...>"
-      ;;
-  esac
+setb2() {         #*** Old kept for reference Not secure - export shows password in clear ***
+    export b2_repo="b2:mbp14-home-restic:"
+    export RESTIC_PASSWORD="$(security find-generic-password -a $USER -s restic -w)"
+    export B2_ACCOUNT_ID="$(security find-generic-password -a $USER -s b2_id -w)"
+    export B2_ACCOUNT_KEY="$(security find-generic-password -a $USER -s b2_key -w)"
 }
+
+# restic() {
+#   case "$1" in
+#     local)
+#       shift
+#       command restic \
+#         --repo /Volumes/Backups/mbp14-tom-home \
+#         --password-command="security find-generic-password -a $USER -s restic -w" \
+#         "$@"
+#       ;;
+#     b2)
+#       shift
+#       local id key
+#       id=$(security find-generic-password -a "$USER" -s b2_id -w)
+#       key=$(security find-generic-password -a "$USER" -s b2_key -w)
+
+#       B2_ACCOUNT_ID="$id" \
+#       B2_ACCOUNT_KEY="$key" \
+#       command restic \
+#         --repo b2:mybucket:/restic \
+#         --password-command="security find-generic-password -a $USER -s restic-b2 -w" \
+#         "$@"
+#       ;;
+#     *)
+#       echo "Usage: restic {local|b2} <restic-args...>"
+#       ;;
+#   esac
+# }
 
 pysrv () {
    BLUE='\033[0;34m'
