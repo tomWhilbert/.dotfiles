@@ -131,6 +131,10 @@ setb2() {         #*** Old kept for reference Not secure - export shows password
     export RESTIC_PASSWORD="$(security find-generic-password -a $USER -s restic -w)"
     export B2_ACCOUNT_ID="$(security find-generic-password -a $USER -s b2_id -w)"
     export B2_ACCOUNT_KEY="$(security find-generic-password -a $USER -s b2_key -w)"
+
+#* try changeing the above to this type of reference for improved security & change in the backrest env var if it works
+# 	 SMB_PASS_CMD="security find-generic-password -a $SMB_USER -s SMB -w"
+#    SMB_PASS="$(eval "$SMB_PASS_CMD")"
 }
 
 # restic() {
@@ -187,4 +191,20 @@ pd() {
         output_file="$2"
     fi
     pandoc "$input_file" -o "$output_file"
+}
+
+mnts() {
+
+#* SMB user credentials
+SMB_USER="tom"
+SMB_PASS_CMD="security find-generic-password -a $SMB_USER -s SMB -w"
+SMB_PASS="$(eval "$SMB_PASS_CMD")"
+
+
+#* Mount the SMB share
+osascript -e "mount volume \"smb://${SMB_USER}:${SMB_PASS}@192.168.0.11/Backups\"" 2>/dev/null
+
+#* Backup VSCode settings separately - move out of Library to avoid issues with restics excludes
+cp -R /Users/tom/Library/Application\ Support/Code/User /Users/tom/Documents/.vscode_config
+
 }
