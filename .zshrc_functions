@@ -202,7 +202,7 @@ SMB_PASS="$(eval "$SMB_PASS_CMD")"
 
 
 #* Mount the SMB share
-osascript -e "mount volume \"smb://${SMB_USER}:${SMB_PASS}@192.168.0.11/Backups\"" 2>/dev/null
+osascript -e "mount volume \"smb://${SMB_USER}:${SMB_PASS}@192.168.1.7/Backups\"" 2>/dev/null
 
 #* Backup VSCode settings separately - move out of Library to avoid issues with restics excludes
 cp -R /Users/tom/Library/Application\ Support/Code/User /Users/tom/Documents/.vscode_config
