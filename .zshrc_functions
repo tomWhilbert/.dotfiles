@@ -52,10 +52,14 @@ man() {
 	}
 
 #* Transform whitespace to Dash
-sd() {
+s2d() {
 		for file in $1; 
 		do mv "$file" "$(echo "$file" | tr ' ' '-')" ; 
 		done
+	}
+
+d2u () {
+		rename 's/-/_/g' "$1"
 	}
 
 pub () {
