@@ -89,6 +89,7 @@ source $DOTS/.zshrc_functions
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tom/.lmstudio/bin"
 
+export STARSHIP_CONFIG=/Users/tom/.config/starship/starship.toml
 eval "$(starship init zsh)"
  
 # eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/amro.omp.json)"
