@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 #* Declare some path variables
 DOTS=$HOME/.dotfiles
 PLUGINS=$HOME/bin/plugins
@@ -70,7 +63,6 @@ eval "$(pyenv init - zsh)"
 # Source paths for zsh plugins
 source $OMZ/lib/directories.zsh #* enables 'd' directory stack
 source $OMZ/plugins/z/z.plugin.zsh
-#source $PLUGINS/powerlevel10k/powerlevel10k.zsh-theme
 source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -82,15 +74,11 @@ ssh-add --apple-load-keychain 2> /dev/null
 source $DOTS/.zshrc_aliases
 source $DOTS/.zshrc_functions
 
-
-#To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tom/.lmstudio/bin"
 
 export STARSHIP_CONFIG=/Users/tom/.config/starship/starship.toml
 eval "$(starship init zsh)"
- 
-# eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/amro.omp.json)"
+
+
 

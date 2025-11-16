@@ -1,15 +1,19 @@
+#!/usr/bin/env zsh
+
+#* LSD aliases
 alias l='lsd -lah --date=+"%a %m/%d %H:%M"'
 alias lS='lsd -lS --icon=never'
 alias lt='l -tr --icon=never'
 alias li='l -i --icon=never'
 alias ldo='l -d */'
 
+#* General Aliases
+alias c='clear'
 alias ss='sudo lsof -PiTCP -sTCP:LISTEN'  
 alias dig='/opt/homebrew/bin/dig'
 alias tldr='tldr --color always'
 alias fdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias lsgroups='dscl . -list /Groups'
-alias getssid="ipconfig getsummary $(networksetup -listallhardwareports | awk '/Hardware Port: Wi-Fi/{getline; print $2}') | awk -F ' SSID : ' '/ SSID : / {print $2}'"
 alias buu='brew update && brew upgrade'
 alias rmf='rm -rf'
 alias srz='exec zsh'
@@ -57,3 +61,4 @@ alias ts='tailscale'
 alias tsu='ts up'
 alias tsd='ts down'
 alias tss='ts status'  
+
