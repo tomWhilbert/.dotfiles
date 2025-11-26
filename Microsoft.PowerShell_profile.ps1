@@ -15,20 +15,6 @@ New-Alias -Name  exexit disconnect-ExchangeOnline
 New-Alias -Name clip Set-Clipboard
 
 
-
-
-
-# function spcon {
-    #   param($site)
-    #   Connect-PnPOnline -Url https://ucblaw.sharepoint.com/sites/"$site" -Interactive
-# }
-
-### New Connection methond using registered app and client id
-function spcon {
-    param($site)
-    Connect-PnPOnline -Url https://ucblaw.sharepoint.com/sites/"$site" -Interactive -ClientId 23a59291-9134-42f2-8e9a-f944c6e82529
-}
-
 # Download Site Pages
 function pcopy {
     $pageUrl = Read-Host -Prompt "Enter page URL"
@@ -40,15 +26,12 @@ function pcopy {
     Get-PnPFile -Url $pageUrl -Path $localPath -FileName "$fname" -AsFile
 }
 
-
 function excon {
      Connect-ExchangeOnline -UserPrincipalName thilbert@clinical.law.berkeley.edu -LoadCmdletHelp
 }
-
 function getpro { 
     Get-Content $PROFILE 
 }
-
 function gcf {
     param ($fxname)
     Get-Content Function:\"$fxname"
@@ -87,7 +70,6 @@ function getuid {
     Write-Host "User Object ID: $($user.Id)" -ForegroundColor DarkGreen
 
 }
-
 function New-SecurityGroupPrompt {
     [CmdletBinding()]
     param ()
