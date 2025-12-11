@@ -1,0 +1,55 @@
+# Navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+# List directory contents
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias l='ls -CF'
+
+# File operations
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias mkdir='mkdir -pv'
+
+# Grep with color
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# System info
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+
+# Process management
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+alias myip='curl ifconfig.me'
+
+# Git shortcuts
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+alias gd='git diff'
+
+# Quick edits
+alias bashrc='${EDITOR:-nano} ~/.bashrc'
+alias aliases='${EDITOR:-nano} ~/.bash_aliases'
+
+# Clear screen
+alias c='clear'
+alias cls='clear'
+
+# Safety nets
+alias ln='ln -i'
+
+# Date and time
+alias now='date +"%T"'
+alias nowdate='date +"%Y-%m-%d"'
