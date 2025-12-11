@@ -128,7 +128,7 @@ scrub () {
 
 setb2() {         #*** Old kept for reference Not secure - export shows password in clear ***
     export b2_repo="b2:mbp14-home-restic:"
-    export RESTIC_PASSWORD="$(security find-generic-password -a $USER -s restic -w)"
+    export RESTIC_PASSWORD="security find-generic-password -a $USER -s restic -w"
     export B2_ACCOUNT_ID="$(security find-generic-password -a $USER -s b2_id -w)"
     export B2_ACCOUNT_KEY="$(security find-generic-password -a $USER -s b2_key -w)"
 
