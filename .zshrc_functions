@@ -164,8 +164,8 @@ pd() {
 
 mnts() {
 SMB_USER="tom"
-SMB_PASS_CMD="security find-generic-password -a $SMB_USER -s SMB -w"
-SMB_PASS="$(eval "$SMB_PASS_CMD")"
+SMB_PASS="security find-generic-password -a $SMB_USER -s SMB -w"
+# SMB_PASS="$(eval "$SMB_PASS_CMD")"
 #* Mount the SMB share
 osascript -e "mount volume \"smb://${SMB_USER}:${SMB_PASS}@192.168.1.7/Backups\"" 2>/dev/null
 }

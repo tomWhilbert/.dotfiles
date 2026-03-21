@@ -32,7 +32,7 @@ function excon {
 function getpro { 
     Get-Content $PROFILE 
 }
-function gcf {
+function gfx {
     param ($fxname)
     Get-Content Function:\"$fxname"
 }
@@ -114,3 +114,43 @@ function New-SecurityGroupPrompt {
 # Invoke-Expression (&starship init powershell)
 
 oh-my-posh init pwsh --config /Users/tom/.config/ohmyposh/pwsh/themes/omp-pwsh.json | Invoke-Expression 
+
+function Get-M365GroupsOwnedByUser {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [string]$UserPrefix
+    )
+
+    # Hard‑coded domain
+    $Domain = "@clinical.law.berkeley.edu"
+
+    # Construct full UPN
+    $UserPrincipalName = "$UserPrefix$Domain"
+
+    Write-Verbose "Checking Microsoft 365 Groups owned by $UserPrincipalName..."
+
+    # Get all directory objects the user owns
+    $ownedObjects = Get-MgUserOwnedObject -UserId $UserPrincipalName
+
+    # Filter to Microsoft 365 Groups (Unified)
+    $m365GroupIds = $ownedObjects |
+        Where-Object {
+            $_.AdditionalProperties['groupTypes'] -contains "Unified"
+        } |
+        Select-Object -ExpandProperty Id
+
+    if (-not $m365GroupIds) {
+        return
+    }
+
+    # Rehydrate each group and output a non-truncated DisplayName
+    foreach ($groupId in $m365GroupIds) {
+        Get-MgGroup -GroupId $groupId |
+            Select-Object @{n='DisplayName';e={ $_.DisplayName }}
+    }
+}
+
+
+
+

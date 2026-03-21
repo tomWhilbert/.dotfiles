@@ -17,7 +17,9 @@ export PATH="$PATH:/Users/tom/.local/bin"
 #* Environment Variables
 export RCLONE_PASSWORD_COMMAND="security find-generic-password -a $USER -s rclone -w"
 export BAT_THEME="gruvbox-dark"
-export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications caskroom=$HOME/Applications"
+#* Homebrew Cask options >> deprecated??? 
+# export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications caskroom=$HOME/Applications"
+
 
 #* Golang environment variables
 export GOROOT=/opt/homebrew/bin/go
@@ -68,7 +70,7 @@ source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 #* load ssh keys into the macOS ssh agent using passphrase from keychain
-ssh-add --apple-load-keychain 2> /dev/null  
+/usr/bin/ssh-add --apple-load-keychain 2> /dev/null  
 
 #* Source aliases and functions
 source $DOTS/.zshrc_aliases
