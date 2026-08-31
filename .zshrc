@@ -57,11 +57,6 @@ bindkey "^[^[[D" backward-word
 bindkey '^[^[[A' history-substring-search-up
 bindkey '^[^[[B' history-substring-search-down
 
-# #* Pyenv Config (put before ohmyzsh plugin to avoid error)
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-
 # Source paths for zsh plugins
 source $OMZ/lib/directories.zsh #* enables 'd' directory stack
 source $OMZ/plugins/z/z.plugin.zsh
@@ -75,9 +70,6 @@ source $PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
 #* Source aliases and functions
 source $DOTS/.zshrc_aliases
 source $DOTS/.zshrc_functions
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/tom/.lmstudio/bin"
 
 export STARSHIP_CONFIG=/Users/tom/.config/starship/starship.toml
 eval "$(starship init zsh)"
