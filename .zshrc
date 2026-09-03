@@ -18,8 +18,7 @@ export PATH="$PATH:/Users/tom/.local/bin"
 export RCLONE_PASSWORD_COMMAND="security find-generic-password -a $USER -s rclone -w"
 export BAT_THEME="gruvbox-dark"
 #* Homebrew Cask options >> deprecated??? 
-# export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications caskroom=$HOME/Applications"
-
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 
 #* Golang environment variables
 export GOROOT=/opt/homebrew/bin/go
