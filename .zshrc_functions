@@ -71,9 +71,10 @@ ytd () {
 	}
 
 #* param 1 is the file hash sum, param 2 is the target file
-chks () {
-        echo "$1  $2" | shasum -c -
+chks() {
+    echo "$1  $2" | shasum -a 256 -c -
 }
+
 
 net () {
 	BLUE='\033[0;34m' 
@@ -126,7 +127,7 @@ scrub () {
 	sed -i "/$1/d" "$2"
 }
 
- #*** Old kept for reference Not secure - export shows password in clear ***
+#*** Updated to use AWS variables - see bitwarden entry ***
 # setb2() {        
 #     export b2_repo="b2:mbp14-home-restic:"
 #     export RESTIC_PASSWORD="security find-generic-password -a $USER -s restic -w"

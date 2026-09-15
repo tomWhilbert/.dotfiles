@@ -15,20 +15,6 @@ New-Alias -Name  exexit disconnect-ExchangeOnline
 New-Alias -Name clip Set-Clipboard
 
 
-function Connect-PnP {
-    param(
-        [Parameter(Mandatory)]
-        [string]$SiteName
-    )
-
-    $url = "https://ucblaw.sharepoint.com/sites/$SiteName"
-
-    Connect-PnPOnline `
-        -Url $url `
-        -Interactive `
-        -ClientId "23a59291-9134-42f2-8e9a-f944c6e82529"
-}
-
 function Get-doclibs {
     Get-PnPList |
     Where-Object {
